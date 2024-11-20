@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 4</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fef6e4; /* Fondo pastel suave */
+            color: #6b705c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #fff3e6; /* Fondo del contenedor */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .calculator h1 {
+            color: #cb997e; /* Título */
+            margin-bottom: 20px;
+        }
+        .calculator input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #f4a261; /* Color del borde */
+            border-radius: 8px;
+            background-color: #fefae0; /* Fondo de los inputs */
+            color: #6b705c; /* Color del texto */
+        }
+        .calculator select, .calculator button {
+            width: 86%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background-color: #f4d35e; /* Color pastel de botones */
+            color: #6b705c;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #f7c59f; /* Hover de los botones */
+        }
+        .calculator select {
+            background-color: #f6bd60; /* Fondo del selector */
+        }
+        .calculator .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #b5838d; /* Color del texto del resultado */
+        }
+        .back-button {
+    position: fixed;
+    bottom: 20px; /* Espacio desde la parte inferior */
+    right: 20px; /* Espacio desde la derecha */
+    background-color: #12507a; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    text-decoration: none; /* Sin subrayado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.back-button:hover {
+    background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+}
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora</h1>
+        <input type="number" id="num1" placeholder="Número 1">
+        <input type="number" id="num2" placeholder="Número 2">
+        <select id="operator">
+            <option value="+">Suma (+)</option>
+            <option value="-">Resta (-)</option>
+            <option value="*">Multiplicación (*)</option>
+            <option value="/">División (/)</option>
+        </select>
+        <button onclick="calculate()">Calcular</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Obtener los valores de los inputs
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operator = document.getElementById("operator").value;
+
+            let result;
+
+            // Validar entradas
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Por favor ingresa números válidos.";
+            } else {
+                // Realizar operación
+                switch (operator) {
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        result = num2 !== 0 ? num1 / num2 : "No se puede dividir entre 0.";
+                        break;
+                    default:
+                        result = "Operación no válida.";
+                }
+            }
+
+            // Mostrar resultado
+            document.getElementById("result").innerText = `Resultado: ${result}`;
+        }
+    </script>
+</body>
+</html>
+<body>
+    <a href="index.html" class="back-button">Volver al Portafolio</a>
+</body>

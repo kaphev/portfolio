@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 2</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Evita el scroll */
+            font-family: Arial, sans-serif; /* Cambia la fuente */
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Tarea2.png'); /* Cambia esto a la ruta de tu imagen */
+            background-size: cover;
+            background-position: center;
+        }
+        .info-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: none; /* Oculto por defecto */
+            transition: all 0.3s ease; /* Transición suave */
+        }
+        /* Mostrar el cuadro cuando se activa el enlace */
+        #toggle:target + .info-box {
+            display: block; /* Mostrar el cuadro */
+        }
+        .toggle-button {
+            position: absolute;
+            top: 70px; /* Coloca el botón en la parte superior */
+            left: 20px; /* Coloca el botón a la izquierda */
+            cursor: pointer;
+            color: #ffffff; /* Color del texto */
+            background-color: #12507a; /* Color de fondo */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            text-decoration: none; /* Sin subrayado */
+            transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+        }
+        .toggle-button:hover {
+            background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+        }
+        .close-button {
+            margin-top: 20px; /* Margen superior */
+            cursor: pointer;
+            color: #ffffff; /* Color del texto */
+            background-color: #e74c3c; /* Color de fondo para el botón de cerrar */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+        }
+        .close-button:hover {
+            background-color: #c0392b; /* Color de fondo al pasar el ratón */
+        }
+        .back-button {
+            position: fixed;
+            bottom: 10px; /* Espacio desde la parte inferior */
+            right: 20px; /* Espacio desde la derecha */
+            background-color: #12507a; /* Color de fondo */
+            color: white; /* Color del texto */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            text-decoration: none; /* Sin subrayado */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+
+        .back-button:hover {
+            background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    
+    <!-- Enlace para mostrar el cuadro de información -->
+    <a href="#toggle" class="toggle-button">Mostrar Descripción del proyecto</a>
+    
+    <div id="toggle"></div> <!-- Este div es el objetivo del enlace -->
+    
+    <div class="info-box">
+        <h2>Descripción del Proyecto 2</h2>
+        <p>En esta practica aprendimos a insertar imágenes y crear tablas en HTML, siguiendo un código el cual contenía la tabla que se ve en pantalla. El uso de la IA fue para generar las imagenes.</p>
+        <a href="#" class="close-button">Ocultar Descripción</a> <!-- Enlace para ocultar -->
+    </div>
+    <a href="index.html" class="back-button">Volver al Portafolio</a>
+</body>
+</html>

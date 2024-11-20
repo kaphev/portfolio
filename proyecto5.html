@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 5</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f7fd; /* Fondo pastel suave */
+            color: #4a4a4a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .todo-container {
+            background-color: #ffedf3; /* Fondo del contenedor */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+        .todo-container h1 {
+            font-size: 24px;
+            color: #8e97f7; /* Título pastel azul */
+            margin-bottom: 20px;
+        }
+        .todo-container input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #e8f1fc; /* Fondo input */
+            margin-bottom: 10px;
+            color: #4a4a4a;
+        }
+        .todo-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #b6dcfe; /* Botón pastel azul */
+            color: #4a4a4a;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .todo-container button:hover {
+            background-color: #92c4fa; /* Hover botón */
+        }
+        .todo-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .todo-item {
+            background-color: #fef6fa; /* Fondo de cada tarea */
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .todo-item button {
+            border: none;
+            background-color: #f9c3d3; /* Botón eliminar */
+            color: #fff;
+            border-radius: 50%;
+            font-weight: bold;
+            width: 32px; /* Aumentar el tamaño del botón */
+            height: 45px; /* Aumentar el tamaño del botón */
+            font-size: 20px; /* Aumentar el tamaño de la "x" */
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .todo-item button:hover {
+            background-color: #f394ac; /* Hover botón eliminar */
+        }
+        .back-button {
+            position: fixed;
+            bottom: 20px; /* Espacio desde la parte inferior */
+            right: 20px; /* Espacio desde la derecha */
+            background-color: #12507a; /* Color de fondo */
+            color: white; /* Color del texto */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            text-decoration: none; /* Sin subrayado */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+        .back-button:hover {
+            background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>Lista de Tareas</h1>
+        <input type="text" id="taskInput" placeholder="Nueva tarea...">
+        <button onclick="addTask()">Agregar</button>
+        <div class="todo-list" id="todoList"></div>
+    </div>
+        
+    <script>
+        function addTask() {
+            // Obtener el valor del input
+            const taskInput = document.getElementById('taskInput').value; // Se eliminó el espacio extra
+            if (taskInput.trim() === '') return; // No agregar si está vacío
+
+            // Crear un nuevo elemento de tarea
+            const todoList = document.getElementById('todoList');
+            const todoItem = document.createElement('div');
+            todoItem.className = 'todo-item';
+            todoItem.innerHTML = `
+                ${taskInput}
+                <button onclick="removeTask(this)">✖</button>
+            `;
+            todoList.appendChild(todoItem);
+
+            // Limpiar el input
+            document.getElementById('taskInput').value = '';
+        }
+
+        function removeTask(button) {
+            // Eliminar la tarea
+            const todoItem = button.parentElement;
+            todoItem.remove();
+        }
+    </script>
+    <a href="index.html" class="back-button">Volver al Portafolio</a>
+</body>
+</html>

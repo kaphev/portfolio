@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 3</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: auto; /* Permitir altura automática */
+            font-family: Arial, sans-serif; /* Cambia la fuente */
+            background-color: black; /* Fondo negro */
+            color: white; /* Color del texto */
+        }
+        .image-container {
+            display: flex; /* Usar flexbox para alinear las imágenes */
+            flex-direction: column; /* Colocar las imágenes en columna */
+            justify-content: flex-start; /* Alinear las imágenes al inicio */
+            align-items: center; /* Centrar las imágenes horizontalmente */
+            padding: 0; /* Sin espaciado alrededor del contenedor */
+        }
+        .image-container img {
+            width: 100%; /* Hacer que las imágenes ocupen el ancho completo del contenedor */
+            max-width: 1000px; /* Establecer un ancho máximo para las imágenes */
+            height: auto; /* Mantener la proporción de las imágenes */
+            margin: 0; /* Sin espacio entre las imágenes */
+            border-radius: 10px; /* Bordes redondeados para un estilo moderno */
+        }
+        .info-box {
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Fijo en la pantalla */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 80%; /* Ancho máximo de la caja */
+            max-height: 80%; /* Altura máxima de la caja */
+            overflow-y: auto; /* Permitir desplazamiento vertical */
+            z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+        }
+        /* Mostrar el cuadro cuando se activa el enlace */
+        #toggle:target + .info-box {
+            display: block; /* Mostrar el cuadro */
+        }
+        .toggle-button {
+            position: fixed; /* Fijo en la pantalla */
+            top: 20px; /* Espacio desde la parte superior */
+            left: 20px; /* Espacio desde la izquierda */
+            cursor: pointer;
+            color: #ffffff; /* Color del texto */
+            background-color: #12507a; /* Color de fondo */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            text-decoration: none; /* Sin subrayado */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+        .toggle-button:hover {
+            background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+        }
+        .back-button {
+            position: fixed;
+            bottom: 5px; /* Espacio desde la parte inferior */
+            right: 20px; /* Espacio desde la derecha */
+            background-color: #12507a; /* Color de fondo */
+            color: white; /* Color del texto */
+            padding: 5px 15px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            text-decoration: none; /* Sin subrayado */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+        .back-button:hover {
+            background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+        }.back-button2 {
+            position: fixed;
+            bottom: 10px; /* Espacio desde la parte inferior */
+            right: 20px; /* Espacio desde la derecha */
+            background-color: #12507a; /* Color de fondo */
+            color: white; /* Color del texto */
+            padding: 10px 20px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            text-decoration: none; /* Sin subrayado */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+        .back-button2:hover {
+            background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="EJ1.jpeg" alt="Imagen 1">
+        <img src="EJ2.jpeg" alt="Imagen 2">
+        <img src="EJ3.jpeg" alt="Imagen 3">
+        <img src="EJ4.jpeg" alt="Imagen 4">
+    </div>
+
+    <!-- Enlace para mostrar el cuadro de información -->
+    <a href="#toggle" class="toggle-button">Mostrar Descripción del Proyecto</a>
+    
+    <div id="toggle"></div> <!-- Este div es el objetivo del enlace -->
+    <div class="info-box">
+        <h2>Descripción del Proyecto 3</h2>
+        <p>Esto es un ejemplo de un blog el cual diseñé apróximadamente hace unos 3 años cuando empecé a aprender Adobe Photoshop. Siempre me ha intrigado el diseño gráfico y web, por lo que de forma autodidacta me puse a ello e hice diversos ejemplos usando a famosos -aunque cambiándoles un poquito la identidad, para hacerlo más interesante-. Sé que el grano de película debe desaparecer, pero por desgracia fue la única manera de recuperar el archivo.</p>
+        <a href="#" class="back-button">Cerrar</a> <!-- Botón para cerrar la descripción -->
+    </div>
+    <a href="index.html" class="back-button2">Volver al Portafolio</a>
+</body>
+</html>

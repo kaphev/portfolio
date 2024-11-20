@@ -1,0 +1,421 @@
+<!DOCTYPE html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Portafolio
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+  /* Estilos generales */
+    body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #121212; /* Fondo oscuro */
+    color: white; /* Texto claro */
+    }
+        /* Estilos del header */
+    header {
+    background: url('portfolio.gif') no-repeat center center/cover;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    position: relative;
+    }
+        header h1 {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+        }
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+        }
+
+        /* Estilos del menú de navegación */
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        nav a {
+            color: #12507a; /* Enlaces amarillos */
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Estilos del div de cookies */
+        .cookie-div {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+        }
+        .cookie-div button {
+            background: #12507a;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .cookie-div {
+            background: rgba(255, 255, 255, 0.1); /* Fondo más claro para el div de cookies */
+            color: white;
+        }
+
+        /* Estilos generales de las secciones */
+        .section {
+            padding: 50px 20px;
+        }
+        a {
+            text-decoration: none; /* Elimina el subrayado de todos los enlaces */
+        }
+
+        /* Estilos de la sección "Sobre Mí" */
+        .about-me {
+            background: #dfdfdf;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-me h2 {
+            color: #12507a;
+        }
+        .about-me p {
+            margin-bottom: 50px;
+            margin: 0;
+            color: black
+        }
+        .social-icons a {
+            color: #12507a;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        .social-icons {
+            margin-top: 20px; /* Agrega un margen superior de 20px */
+        }
+        .social-icons a:hover {
+            color: #3077a7;
+        }
+
+        /* Estilos de la galería de proyectos */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .project-card {
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        .project-card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .project-card h3 {
+            margin: 10px 0;
+            color: #12507a;
+        }
+        .project-card p {
+        color: #000000; 
+        }
+
+        /* Estilos de la sección de habilidades */
+        .skills {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .skill-bar {
+            background: #ffffff;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .skill-bar div {
+            background: #12507a;
+            height: 20px;
+            width: 0;
+            transition: width 1s;
+        }
+
+        /* Estilos del formulario de contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: #12507a;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background: #1380c9;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px; /* Espacio desde la parte inferior */
+            right: 20px; /* Espacio desde la derecha */
+            background-color: #12507a; /* Color de fondo */
+            color: white; /* Color del texto */
+            padding: 10px 15px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 16px; /* Tamaño de fuente */
+            text-decoration: none; /* Sin subrayado */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            opacity: 0.7; /* Opacidad para hacerlo menos molesto visualmente */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+
+        .back-to-top:hover {
+            background-color: #1a6b9a; /* Color de fondo al pasar el ratón */
+            opacity: 1; /* Aumentar opacidad al pasar el ratón */
+        }
+  </style>
+ </head>
+ <body>
+  <!-- Header con imagen de fondo, nombre y menú de navegación -->
+  <header>
+    <header id="top">
+    </header>
+   <nav>
+    <a href="#about">
+     Sobre Mí
+    </a>
+    <a href="#projects">
+     Proyectos
+    </a>
+    <a href="#skills">
+     Habilidades
+    </a>
+    <a href="#contact">
+     Contacto
+    </a>
+   </nav>
+   <!-- Div de cookies -->
+   <div class="cookie-div">
+    Este sitio usa cookies para mejorar la experiencia del usuario.
+    <button onclick="this.parentElement.style.display='none';">
+     Aceptar
+    </button>
+   </div>
+  </header>
+  <!-- Sección "Sobre Mí" -->
+  <section class="section" id="about">
+   <div class="about-me">
+    <h2>
+     Sobre Mí
+    </h2>
+    <p>
+    ¡Hola! Soy Carmen, estudiante de sistemas microinformáticos y redes, además de una apasionada por el diseño y desarrollo web. Tengo 22 años y puedes encontrarme en España o Noruega. Después de servir muchos cafés y probar diferentes caminos, por fin he decidido dedicarme a lo que me gusta. Aquí encontrarás mis proyectos y habilidades.
+    </p>
+    <div class="social-icons">
+     <a href="#">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-github">
+      </i>
+     </a>
+    </div>
+   </div>
+  </section>
+  <!-- Sección de Proyectos -->
+  <section class="section" id="projects">
+   <h2>
+    Proyectos
+   </h2>
+   <div class="projects">
+    <div class="project-card">
+     <a href="proyecto1.html">
+      <img alt="Imagen del proyecto 1" height="200" src="proyecto1.png" width="300"/>
+      <h3>
+       Proyecto 1
+      </h3>
+      <p>
+       Cajas HTML y posicionamiento CSS.
+      </p>
+     </a>
+    </div>
+    <div class="project-card">
+     <a href="proyecto2.html">
+      <img alt="Imagen del proyecto 2" height="200" src="proyecto2.png" width="300"/>
+      <h3>
+       Proyecto 2
+      </h3>
+      <p>
+       Imagenes y tablas HTML + IA.
+      </p>
+     </a>
+    </div>
+    <div class="project-card">
+     <a href="proyecto3.html">
+      <img alt="Imagen del proyecto 3" height="200" src="proyecto3.png" width="300"/>
+      <h3>
+       Proyecto 3
+      </h3>
+      <p>
+       Ejemplo de diseño de web con Adobe Photoshop.
+      </p>
+     </a>
+    </div>
+    <div class="project-card">
+     <a href="proyecto4.html">
+      <img alt="Imagen del proyecto 4" height="200" src="proyecto4.png" width="300"/>
+      <h3>
+       Proyecto 4
+      </h3>
+      <p>
+       Calculadora básica con HTML, CSS y JavaScript.
+      </p>
+     </a>
+    </div>
+    <div class="project-card">
+     <a href="proyecto5.html">
+      <img alt="Imagen del proyecto 5" height="200" src="proyecto5.png" width="300"/>
+      <h3>
+       Proyecto 5
+      </h3>
+      <p>
+       To-do-list con HTML, CSS y JavaScript.
+      </p>
+     </a>
+    </div>
+    <div class="project-card">
+     <a href="proyecto6.html">
+      <img alt="Imagen del proyecto 6" height="200" src="proyecto6.png" width="300"/>
+      <h3>
+       Proyecto 6
+      </h3>
+      <p>
+        Reloj básico de tonos pastel con HTML, CSS y JavaScript.
+      </p>
+     </a>
+    </div>
+   </div>
+  </section>
+  <!-- Sección de Habilidades y Conocimientos -->
+  <section class="section" id="skills">
+   <h2>
+    Habilidades y Conocimientos
+   </h2>
+   <div class="skills">
+    <div class="skill">
+     <h3>
+      HTML
+     </h3>
+     <p>
+      Lenguaje de marcado para la creación de páginas web.
+     </p>
+     <div class="skill-bar">
+      <div style="width: 60%;">
+      </div>
+     </div>
+    </div>
+    <div class="skill">
+     <h3>
+      CSS
+     </h3>
+     <p>
+      Lenguaje de estilos para diseñar páginas web.
+     </p>
+     <div class="skill-bar">
+      <div style="width: 50%;">
+      </div>
+     </div>
+    </div>
+    <div class="skill">
+     <h3>
+      Adobe Photoshop
+     </h3>
+     <p>
+      Diseño gráfico.
+     </p>
+     <div class="skill-bar">
+      <div style="width: 80%;">
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Sección de Contacto -->
+  <section class="section" id="contact">
+   <h2>
+    Contacto
+   </h2>
+   <div class="contact-form">
+    <p>
+     ¿Quieres contratarme? ¡Hablemos!
+    </p>
+    <form>
+     <input name="name" placeholder="Nombre" required="" type="text"/>
+     <input name="email" placeholder="Correo electrónico" required="" type="email"/>
+     <textarea name="message" placeholder="Mensaje" required=""></textarea>
+     <button type="submit">
+      Enviar
+     </button>
+    </form>
+   </div>
+  </section>
+  <!-- Pie de página -->
+  <footer>
+   <p>
+    © 2024 Carmen Ferri Carrasco
+   </p>
+  </footer>
+<a href="#top" class="back-to-top">↑ Volver Arriba</a>
+ </body>
